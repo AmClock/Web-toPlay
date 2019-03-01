@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>signUp</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/signUp.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+</head>
+<body>
+<div id="content">
+    <div id="wrap">
+        <div id="formWrap">
+            <div id="logoBox">
+                <a href="main.html"><img src="img/logo.png"/></a>
+            </div><!--//logoBox end-->
+            <form action="" method="">
+                <div class="wrap_input">
+                    <label for="id">ID</label>
+                    <input class="input_function" type="text" id="id" placeholder="ID"/>
+                </div><!--//wrap_input end-->
+                <div class="wrap_input">
+                    <label for="name">Name</label>
+                    <input class="input_function" type="text" id="name" placeholder="name"/>
+                </div><!--//wrap_input end-->
+
+                <div class="wrap_input">
+                    <label for="password">Password</label>
+                    <input class="input_function" type="text" id="password" placeholder="Password"/>
+                </div><!--//wrap_input end-->
+
+
+                <div class="wrap_input">
+                    <label for="passwordCheck">PasswordCheck</label>
+                    <input class="input_function" type="text" id="passwordCheck" placeholder="PasswordCheck"/>
+                </div><!--//wrap_input end-->
+
+                <div class="wrap_input_twe">
+                    <span id="labelSpan">Gender</span>
+                    <div id="titleRadioMan">Man</div>
+                    <div id="titleRadioWoman">Woman</div>
+                    <label for="man" class="label_gender"><i class="fas fa-male"></i></label>
+                    <label for="woman"  class="label_gender"><i class="fas fa-female"></i></label>
+                    <input type="radio" name="gender" id="man" class="screen_out" value="M"/>
+                    <input type="radio" name="gender" id="woman" class="screen_out" value="W"/>
+                </div><!--//wrap_input end-->
+
+                <div id="profileWrap">
+                    <span>Profile</span>
+
+                    <label id="profileBox" for="profile">
+                        <img src="img/default.png" alt="기본이미지" title="기본이미지" id="profileImg"/>
+                    </label>
+                    <input type="file" id="profile" class="screen_out"/>
+                </div><!--//profileWrap end-->
+
+                <div id="btnBox">
+                     <button>Cancel</button>
+                     <button>Sign Up</button>
+                 </div><!--//btnBox end-->
+            </form><!--//form end-->
+        </div><!--///formWrap end-->
+    </div><!--//wrap end-->
+
+</div><!--//content end-->
+
+<script src="js/jquery.js"></script>
+<script>
+    var windowWidth = 0;
+    var windowHeight = 0;
+
+    resizeAll();
+
+    $(window).resize(function () {
+        resizeAll();
+    });
+
+    function resizeAll() {
+        windowWidth =$(window).width();
+        windowHeight =$(window).height();
+        $("#content").css({
+            "height":(windowHeight)
+        });
+        $("#wrap").css({
+            "height":(windowHeight)
+        });
+    } // resizeAll() end
+
+
+    $(".wrap_input .input_function").focusin(function () {
+        $(this).attr("placeholder","");
+        $(".label_opcitiy").removeClass("label_opcitiy");
+        $(this).prev().addClass('label_opcitiy');
+        var labelText = $(this).prev().text();
+        $(this).focusout(function () {
+            $(".label_opcitiy").removeClass("label_opcitiy");
+            $(this).attr("placeholder",labelText);
+        });
+    });
+
+
+    $(".wrap_input_twe label i").on("click",function () {
+        $(".on_i").removeClass("on_i");
+        $(this).addClass("on_i");
+    })
+</script>
+</body>
+</html>

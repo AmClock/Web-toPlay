@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="css/template.css"/>
+    <link rel="stylesheet" href="css/form.css"/>
+</head>
+<body>
+
+<div id="header">
+    <div id="headerWrap">
+        <div id="logoWrap">
+            <a href="main.html"><img src="img/logo.png"/></a>
+        </div><!--// logo Wrap-->
+
+        <div id="loginWrap">
+            <div id="logoutBox">
+                <a class="btn_login" href="signUp.html">
+                    <div>Sign Up</div>
+                </a>
+                <a class="btn_login" href="login.html">
+                    <div>Login</div>
+                </a>
+
+            </div><!--//logoutBox end-->
+            <!--
+            <div id="lgoinBox">
+                <div id="profileBox" class="pos_logout_cont"></div>&lt;!&ndash;// profie end&ndash;&gt;
+                <div id="logoutBtn" class="pos_logout_cont">Logout</div>
+            </div>&lt;!&ndash;//lgoinBox end&ndash;&gt;
+            -->
+        </div><!--//loginWrap end-->
+
+    </div><!--headerWrap end-->
+</div><!--//header  end-->
+
+<div id="content">
+    <form action="" method="post">
+      <div id="wrap">
+
+        <div id="inputWrap">
+            <label for="title">Title</label>
+            <input type="text" id="title"/>
+        </div><!--//inputWrap end-->
+
+        <div class="wrap_textarea">
+
+            <div class="box_remove">
+                <button type="button"><i class="fas fa-trash"></i></button>
+            </div><!--//box_remove end-->
+
+            <div class="box_img">
+                <label for="img_1"><i class="far fa-image"></i></label>
+                <input type="file" id="img_1" class="screen_out">
+                <img src="img/test.jpg" class="content_img" alt="" title="">
+            </div><!--//box_img end-->
+
+            <textarea></textarea><!--//textarea end-->
+        </div><!--//wrap_textarea end-->
+
+        <div id="formBtnWrap">
+            <button><i class="fas fa-pen"></i></button>
+        </div><!--//formBtnWrap end-->
+     </div><!--//wrap end-->
+
+    </form><!--//form end-->
+
+
+    <div class="box_more">
+        <button type="button">
+            <i class="fas fa-plus"></i>
+        </button>
+        <div id="msg">5개 까지만 </br>사용이 가능합니다!!</div>
+    </div><!--//box_more end-->
+
+
+</div><!--// content end-->
+
+<div id="footer">
+    <div id="footerWrap">
+        <div id="footerLogo">
+            <img src="img/logo.png"/>
+        </div><!--// logo Wrap-->
+        <div id="footerText">
+            <h6>ⓒ toPlay Corp. Korea</h6>
+        </div>
+    </div>
+</div><!--//footer end-->
+
+
+<script src="js/jquery.js"></script>
+<script src="js/fix-footer.js"></script>
+<script>
+    var $moreBtn = $(".box_more button");
+
+    var inputNun = 1;
+
+
+
+    $moreBtn.on('click',function () {
+
+        if(inputNun < 5){
+         $("#msg").css("display","none");
+
+         wrapHeight(+420);
+
+        inputNun+=1;
+
+        fixFooter();
+
+        var textArea = $("<div class='wrap_textarea'>" +
+            "<div class='box_remove'>" +
+            "<button type='button'><i class='fas fa-trash'></i></button>" +
+            "</div>" +
+            "<div class='box_img'><label for='img_"+inputNun+"'><i class='far fa-image'></i></label>" +
+            "<input type='file' class='screen_out' id='img_"+inputNun+"'/>" +
+            "<img class='content_img' src='img/test.jpg' alt='' title=''/>" +
+            "</div>" +
+            "<textarea></textarea>" +
+            "</div>");
+
+        $("#wrap").append(textArea);
+
+
+        var scmove = $("#footer").offset().top;
+
+        $('html, body').animate( {
+            scrollTop : scmove
+        }, 1000  );
+
+        }else{
+            $("#msg").css("display","block");
+        }
+
+
+    });
+
+
+    $("form").on("click",".box_remove button",function () {
+        var num = $(this).parent().next().children("label").attr("for").length;
+        var $numFor = $(this).parent().next().children("label").attr("for").substr(num-1,num);
+
+        if($numFor == inputNun && inputNun != 1){
+            $("#msg").css("display","none");
+            $(this).parent().parent().remove();
+            inputNun-=1;
+            wrapHeight(-420);
+            fixFooter();
+        }else{
+            alert("지울 수 없습니다.")
+        }
+    });
+
+
+    $("form").on("click" ,".box_img label", function () {
+
+        $(this).next().on("change",function () {
+            $(this).prev().css("display","none");
+            $(this).next().css("display","block");
+        });
+
+    });
+
+    function wrapHeight(num) {
+        var height =$('div#wrap ').css("height");
+        var heightNum = parseInt(height.substr(0,height.indexOf('px')))+num;
+        $('div#wrap ').css("height",heightNum);
+
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>main</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+   <link rel="stylesheet" href="css/template.css"/>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div id="header">
+    <div id="headerWrap">
+        <div id="logoWrap">
+            <a href="main.html"><img src="img/logo.png"/></a>
+        </div><!--// logo Wrap-->
+
+        <div id="loginWrap">
+            <div id="logoutBox">
+                <a class="btn_login" href="signUp.html">
+                    <div>Sign Up</div>
+                </a>
+                <a class="btn_login" href="login.html">
+                    <div>Login</div>
+                </a>
+
+            </div><!--//logoutBox end-->
+            <!--
+            <div id="lgoinBox">
+                <div id="profileBox" class="pos_logout_cont"></div>&lt;!&ndash;// profie end&ndash;&gt;
+                <div id="logoutBtn" class="pos_logout_cont">Logout</div>
+            </div>&lt;!&ndash;//lgoinBox end&ndash;&gt;
+            -->
+        </div><!--//loginWrap end-->
+
+    </div><!--headerWrap end-->
+</div><!--//header  end-->
+
+<div id="content">
+        <div id="wrap">
+            <div id="mainBtnWrap">
+                <div class="btn_my">My history</div>
+                <div class="btn_my">My Like</div>
+            </div><!--//mainBtnWrap end-->
+            <div id="searchWrap">
+                <div id="searchBox">
+                    <input type="text"/>
+                    <div id="searchIcon">
+                        <i class="fas fa-search"></i>
+                    </div><!--//searchIcon end-->
+                </div><!--//searchBox end-->
+                <ul id="searchOtherWrap">
+                    <li class="box_other">xxxxxxxxxxxxxxxxxx</li>
+                    <li class="box_other">xxxxxxxxxxxxxxxxxx</li>
+                    <li class="box_other">xxxxxxxxxxxxxxxxxx</li>
+                    <li class="box_other">xxxxxxxxxxxxxxxxxx</li>
+                    <li class="box_other">xxxxxxxxxxxxxxxxxx</li>
+                </ul>
+            </div><!--//searchWrap end -->
+
+            <div id="writeBtnWrap">
+                <a href="form.html"><button>Write</button></a>
+            </div><!--//writeBtnWrap end-->
+
+            <div id="selectWrap">
+                <div id="selectBox">
+                    <span>select</span><i class="fas fa-sort-down"></i>
+                </div><!--//selectBox end-->
+                <div id="optionBox">
+                        <div>The latest</div>
+                        <div>Popularity</div>
+                </div>
+            </div><!--//selectWrap end-->
+
+
+            <ul id="mainContents">
+
+<!--template -->
+                <li>
+                    <a href="detail.html">
+                            <div class="box_img">
+                                <img src="img/test.jpg"/>
+                            </div>
+                            <div id="titleBox" class="box_card_text over_flow">글제목입니다.......</div>
+                            <div id="nicknameBox" class="box_card_text">작성자</div>
+                        <div class="box_card_text">
+                            <span class="icon_content"><i class="fas fa-heart"></i> 100k</span>
+                            <span class="icon_content"><i class="fas fa-comment-alt">1000k</i></span>
+                            <span class="icon_content"><i class="fas fa-eye"> 1000k</i></span>
+                            <span class="regdate_box">20xx년xx월xx일</span>
+                        </div><!--//box_card_text end-->
+                    </a>
+                </li><!--//card end-->
+<!--template -->
+
+            </ul><!--//mainContents end-->
+           <!--     <div id="paing"></div>-->
+        </div><!--wrap end-->
+
+</div><!--// content end-->
+
+<div id="footer">
+    <div id="footerWrap">
+        <div id="footerLogo">
+            <img src="img/logo.png"/>
+        </div><!--// logo Wrap-->
+        <div id="footerText">
+            <h6>ⓒ toPlay Corp. Korea</h6>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.js"></script>
+<script src="js/template.js"></script>
+<script>
+var order;
+
+$("#selectBox i ").on('click',function () {
+    $("#optionBox").slideToggle();
+    $("#optionBox div").on("click",function () {
+        order = $(this).text();
+        $("#selectBox span").text(order);
+    });
+});
+
+
+$('.btn_my').on('click',function () {
+    $(".btn_my_on").removeClass("btn_my_on");
+    $(this).addClass("btn_my_on");
+});
+$("#searchIcon").on('click',function () {
+    $('#searchBox input').focus();
+})
+
+    $("#searchBox").on("keyup",function () {
+        $("#searchOtherWrap").css("display","block");
+    })
+</script>
+</body>
+</html>

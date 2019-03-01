@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <style>
+        #header {
+            width: 100%;
+            height: 100px;
+            box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        #headerWrap {
+            width: 1200px;
+            height: 100px;
+            margin: auto;
+            position: relative;
+        }
+
+        #logoWrap {
+            width: 300px;
+            height: 80px;
+            background-color: antiquewhite;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        #loginWrap {
+            width: 300px;
+            height: 100px;
+            background-color: silver;
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+
+        #logoutBox {
+            width: 300px;
+            height: 100px;
+        }
+
+        #logoutBox .btn_login {
+            text-decoration: none;
+            color: #000;
+            width: 145px;
+            height: 30px;
+            background-color: aqua;
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            margin-top: 35px;
+        }
+        #lgoinBox{
+            width: 300px;
+            height: 100px;
+        }
+        #profileBox{
+            width: 80px;
+            height: 80px;
+            background-color: #3e3a95;
+            border-radius: 80px;
+        }
+        #logoutBtn{
+            width: 145px;
+            height: 30px;
+            background-color: #3e3a95;
+            text-align: center;
+            line-height: 30px;
+        }
+        .pos_logout_cont{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<div id="header">
+    <div id="headerWrap">
+        <div id="logoWrap"></div><!--// logo Wrap-->
+
+        <div id="loginWrap">
+            <div id="logoutBox">
+                <a class="btn_login" href="#">
+                    <div>Sign Up</div>
+                </a>
+                <a class="btn_login" href="#">
+                    <div>Login</div>
+                </a>
+            </div><!--//logoutBox end-->
+            <!--
+            <div id="lgoinBox">
+                <div id="profileBox" class="pos_logout_cont"></div>&lt;!&ndash;// profie end&ndash;&gt;
+                <div id="logoutBtn" class="pos_logout_cont">Logout</div>
+            </div>&lt;!&ndash;//lgoinBox end&ndash;&gt;
+            -->
+        </div><!--//loginWrap end-->
+
+    </div><!--headerWrap end-->
+</div><!--//header  end-->
+</body>
+</html>

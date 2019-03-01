@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/login.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR" rel="stylesheet">
+</head>
+<body>
+<div id="content">
+    <div id="wrap">
+        <div id="loginWrap">
+            <div id="logoBox">
+                <a href="main.html"><img src="img/logo.png"/></a>
+            </div><!--//logoBox end-->
+            <form action="" method="">
+                <div class="wrap_input">
+                    <label for="id">ID</label>
+                    <input type="text" id="id" placeholder="ID"/>
+                </div><!--//wrap_input end-->
+                <div class="wrap_input">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password"/>
+                </div><!--//wrap_input end-->
+                 <div id="btnBox">
+                     <button>Login</button>
+                 </div><!--//btnBox end-->
+                <div id="eventWrap">
+
+                    <div class="wrap_comment">
+                        <a href="signUp.html">Click here to sign up</a>
+                    </div><!--//wrap_comment end-->
+
+                    <div class="wrap_comment">
+                        <a href="#" id="idCheck">ID check</a>
+                        <spna>|</spna>
+                        <a href="#" id="pwdCheck">Password check</a>
+                    </div><!--//wrap_comment end-->
+
+                </div><!--//eventWrap end-->
+            </form><!--//form end-->
+        </div><!--///lgoingWrap-->
+
+    </div><!--//wrap end-->
+</div><!--//content end-->
+
+<script src="js/jquery.js"></script>
+<script>
+    var windowWidth = 0;
+    var windowHeight = 0;
+
+    resizeAll();
+
+    $(window).resize(function () {
+        resizeAll();
+    });
+
+    function resizeAll() {
+        windowWidth =$(window).width();
+        windowHeight =$(window).height();
+        $("#content").css({
+            "height":(windowHeight)
+        });
+        $("#wrap").css({
+            "height":(windowHeight)
+        });
+    } // resizeAll() end
+
+
+    $(".wrap_input input").focusin(function () {
+        $(this).attr("placeholder","");
+        $(".label_opcitiy").removeClass("label_opcitiy");
+        $(this).prev().addClass('label_opcitiy');
+        var labelText = $(this).prev().text();
+        $(this).focusout(function () {
+            $(".label_opcitiy").removeClass("label_opcitiy");
+            $(this).attr("placeholder",labelText);
+        });
+    });
+
+</script>
+</body>
+</html>

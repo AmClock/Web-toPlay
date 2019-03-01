@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+          integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+          crossorigin="anonymous">
+    <style>
+        #selectWrap{
+            width: 1200px;
+            height: 50px;
+          /*  background-color: #f00;*/
+
+            position: relative;
+        }
+        #selectBox{
+            width: 150px;
+            height: 30px;
+            background-color: aqua;
+            position: absolute;
+            top: 10px;
+            right: 0px;
+        }
+        #setOption{
+            width: 150px;
+            height: 30px;
+            background-color: coral;
+            text-align: center;
+            line-height: 30px;
+        }
+        #selectBtn{
+            width: 30px;
+            height: 30px;
+            background-color: #27ae60;
+            text-align: center;
+            line-height: 30px;
+            font-size: 27px;
+            float: right;
+
+            cursor: pointer;
+
+
+        }
+        #selectBtn:hover{
+            animation: moveIcon 1s ease;
+        }
+        @keyframes moveIcon {
+            0%{transform: rotate(0deg)}
+            100%{transform: rotate(360deg)}
+        }
+        #selectText{
+            display: inline-block;
+        }
+        #optionBox{
+            width: 120px;
+            height: 60px;
+            background-color: #3e3a95;
+            position: absolute;
+
+            top: 0px;
+            right: -120px;
+
+            text-align: center;
+
+            display: none;
+        }
+        #optionBox div{
+            width: 120px;
+            height: 30px;
+            line-height: 30px;
+            /*background-color: cornsilk;*/
+        }
+    </style>
+</head>
+<body>
+<div id="selectWrap">
+    <div id="selectBox">
+            <div id="setOption">
+                <div id="selectText">최신순</div>
+                <div id="selectBtn" class="fas fa-compact-disc"></div>
+            </div>
+
+            <div id="optionBox">
+                <div>최신순</div>
+                <div>인기순</div>
+            </div>
+    </div>
+</div>
+
+
+<script src="js/jquery.js"></script>
+<script>
+    $("#selectBtn").mouseover(function () {
+       /* $("#optionBox").css("display","block");*/
+        $("#optionBox").fadeIn();
+        $("#optionBox div").css("cursor","pointer").on("click",function () {
+            var optionText = $(this).text();
+           $("#selectText").text(optionText);
+        });
+    });
+</script>
+</body>
+</html>
